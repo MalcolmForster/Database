@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}">
+        <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+        <title>Cotiss feedback app</title>
+    </head>
+
+    <body>
+        <div>
+            <h1>How have you enjoyed working at Cotiss?</h1>
+            <h2>All information given on this page is fully anonymous</h2>
+        </div>
+
+        <div>
+            <h3>Randomly selected feedback is displayed here:</h3>
+            <div>
+                <p id="randomCommentBody">{{testing}}</p>
+            </div>
+
+            <!-- <form name="newFeedBackForm" action="{{ url_for('index') }}" method="post"> -->
+            
+            <form action="/postnew" method="post">
+                <label for="FeedbackArea">Post Anonymous Feedback Below: </label><br><br>
+                <textarea cols="50" rows="10" id="FeedbackArea" name="feedbackArea">Blank</textarea><br>
+                <input type="submit" value="Submit"/>
+            </form>
+        </div>    
+    </body>
+
+
+</html>

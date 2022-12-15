@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}">
+        <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+        <title>Cotiss feedback app</title>
+    </head>
+
+    <body>
+        <div>
+            <h1>Feedback posted</h1>
+            <h2>Will redirect to index after two seconds</h2>
+            <script>
+                function redirect() {
+                    setTimeout(function () { document.location.href="/";}, 2000)
+                }                
+                redirect()
+            </script>
+        </div>  
+    </body>
+</html>

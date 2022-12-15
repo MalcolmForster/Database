@@ -124,6 +124,7 @@ def delete_item(container, doc_id, account_number):
     print('Deleted item\'s Id is {0}'.format(doc_id))
 
 
+
 def get_sales_order(item_id):
     order1 = {'id' : item_id,
             'partitionKey' : 'Account1',
