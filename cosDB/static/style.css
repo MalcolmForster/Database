@@ -3,3 +3,13 @@ body {
     background-color: rgb(94, 154, 94);
     text-align: center;
 }
+
+.randomComment {
+    background-color: aliceblue;
+    max-width: 1000px;
+    text-align: center;
+    margin:20px;
+    margin-left: auto;
+    margin-right: auto;
+    padding:10px;
+}

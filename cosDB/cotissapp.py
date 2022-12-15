@@ -18,7 +18,7 @@ app = Flask(__name__)
 
 def index():
     feedback = retrieve_Feedback()
-    return render_template('index.html', testing=feedback)
+    return render_template('index.html', feedback=feedback)
 
 @app.route('/postnew', methods=['GET','POST'])
 
