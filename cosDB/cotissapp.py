@@ -23,7 +23,8 @@ def index():
 @app.route('/postnew', methods=['GET','POST'])
 
 def postnew():
-    count = count_Feedback()
+    container = initCosmos()
+    count = count_Feedback(container)
     if request.method =='POST':        
         newfeedback = {
                         'id' : str(count+1),
@@ -33,13 +34,13 @@ def postnew():
         container.create_item(body=newfeedback)
         return render_template('postnew.html')
 
-def count_Feedback():
-    count = list(container.query_items("SELECT VALUE COUNT(1) FROM c", enable_cross_partition_query=True))
-    
+def count_Feedback(container):
+    count = list(container.query_items("SELECT VALUE COUNT(1) FROM c", enable_cross_partition_query=True))    
     return int(count[0])
 
 def retrieve_Feedback():
-    count = count_Feedback()
+    container = initCosmos()
+    count = count_Feedback(container)
     value = "no feedback found"
     if(count > 0):
         randnum = random.randint(1,count)
@@ -47,11 +48,11 @@ def retrieve_Feedback():
         value = list(iterator)[0]["feedbacktext"]
     return value
 
-if __name__ == '__main__':
+def initCosmos():
     client = cosmos_client.CosmosClient(HOST, {'masterKey': MASTER_KEY}, user_agent="CosmosDBPythonQuickstart", user_agent_overwrite=True)
     db = client.get_database_client(DATABASE_ID)
-    container = db.get_container_client(CONTAINER_ID)
-    
-    
+    return db.get_container_client(CONTAINER_ID)
+
+if __name__ == '__main__':   
     app.run(debug=True)
     #empty_container()
