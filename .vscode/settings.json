@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/8179411e-d96d-4d98-8237-b7689d90e652/AppServices/subscriptions/8179411e-d96d-4d98-8237-b7689d90e652/resourceGroups/CotissFeedbackApp/providers/Microsoft.Web/sites/CotissWebApp",
+    "appService.deploySubpath": "cosDB"
+}
